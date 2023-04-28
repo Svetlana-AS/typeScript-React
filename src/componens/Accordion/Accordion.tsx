@@ -16,7 +16,7 @@ type  AccordionTitlePropsType = {
     title : string
 }
 function AccordionTitle (props : AccordionTitlePropsType){
-    debugger
+
     console.log("AccordionTitle rendering")
     return <h3>{props.title}</h3>
 }

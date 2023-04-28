@@ -3,6 +3,8 @@ import './App.css';
 import Accordion from "./componens/Accordion/Accordion";
 import {Rating} from "./componens/Rating/Rating";
 import OnOff from "./componens/OnOff";
+import {UncontrolledAccordion} from "./componens/UncontrolledAccordion/UncontrolledAccordion";
+
 
 function sum () {
 
@@ -11,12 +13,16 @@ function sum () {
 
 
 
-
 function App() {
-    console.log("App rendering")
+
+
+
     return (
         <div>
-            <OnOff on={false}/>
+            <UncontrolledAccordion titleValue={"Меню"} />
+            <UncontrolledAccordion titleValue={"Меню"} />
+
+            {/*<OnOff on={false}/>*/}
 
         {/*<Accordion titleValue={"Меню"} collapced={true}/>*/}
         {/*<Accordion titleValue={"Сайт бар"} collapced={false}/>*/}
