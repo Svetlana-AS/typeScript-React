@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./componens/Accordion/Accordion";
-import {Rating} from "./componens/Rating/Rating";
+import {Rating, RatingValueType} from "./componens/Rating/Rating";
 import OnOff from "./componens/OnOff";
 import {UncontrolledAccordion} from "./componens/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./componens/UncontrolledRating/UncontrolledRating";
@@ -16,14 +16,17 @@ function sum () {
 
 function App() {
 
-
+let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
 
     return (
         <div className={"App"}>
+            <OnOff on={false}/>
             <UncontrolledAccordion titleValue={"Меню"} />
-            <UncontrolledAccordion titleValue={"Меню"} />
-
+            {/*<UncontrolledAccordion titleValue={"Меню"} />*/}
+            <Rating value={ratingValue}  onClick={setRatingValue}/>
             <UncontrolledRating />
+
+            <Accordion titleValue={"Сайт бар"} collapced={false}/>
 
             {/*<OnOff on={false}/>*/}
 

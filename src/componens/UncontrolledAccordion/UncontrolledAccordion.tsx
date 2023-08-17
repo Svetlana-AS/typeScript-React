@@ -7,28 +7,31 @@ export function UncontrolledAccordion (props : AccordionPropsType) {
 
 
 
-let [collapced, setCollapced]=useState<boolean>(false)
+let [collapced, setCollapced]=useState(false)
 
-   const controlledHahdler =(e:React.MouseEvent<HTMLButtonElement>)=>{
-       setCollapced(!collapced)
-   }
+   // const controlledHahdler =(e:React.MouseEvent<HTMLButtonElement>)=>{
+   //     setCollapced(!collapced)
+   // }
 
     return <div>
-        <AccordionTitle title ={props.titleValue}/>
-        <button onClick={controlledHahdler}>TOGGLE</button>
+        <AccordionTitle title ={props.titleValue} onClick={() => {setCollapced(!collapced)}}/>
+        {/*<button onClick={controlledHahdler}>TOGGLE</button>*/}
         {!collapced && <AccordionBody/>}
     </div>
 }
 export type  AccordionTitlePropsType = {
     title : string
+    onClick:()=>void
 }
-export function AccordionTitle (props : AccordionTitlePropsType){
+ function AccordionTitle (props : AccordionTitlePropsType){
 
-    console.log("AccordionTitle rendering")
-    return <h3>{props.title}</h3>
+
+    return (
+    <h3 onClick={()=>{props.onClick ()}}>{props.title}</h3>
+)
 }
 export function AccordionBody() {
-    console.log("AccordionBody rendering")
+    // console.log("AccordionBody rendering")
     return <div>
         <ul>
             <li>1</li>
